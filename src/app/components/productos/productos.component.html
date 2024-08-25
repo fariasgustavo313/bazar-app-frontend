@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <h2>Gestión de Productos</h2>
+
+  <!-- Formulario de Producto -->
+  <form [formGroup]="productoForm" (ngSubmit)="selectedProducto ? actualizarProducto() : crearProducto()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="marca">Marca</label>
+      <input type="text" id="marca" formControlName="marca" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="costo">Costo</label>
+      <input type="number" id="costo" formControlName="costo" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="cantidad_disponible">Cantidad Disponible</label>
+      <input type="number" id="cantidad_disponible" formControlName="cantidad_disponible" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">
+      {{ selectedProducto ? 'Actualizar Producto' : 'Crear Producto' }}
+    </button>
+  </form>
+
+  <!-- Lista de Productos -->
+  <div class="mt-4">
+    <h3>Lista de Productos</h3>
+    <ul class="list-group">
+      <li *ngFor="let producto of productos" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <h5>{{ producto.nombre }}</h5>
+          <p>Marca: {{ producto.marca }} | Costo: {{ producto.costo }} | Cantidad: {{ producto.cantidad_disponible }}</p>
+        </div>
+        <div>
+          <button class="btn btn-warning btn-sm" (click)="editarProducto(producto)">Editar</button>
+          <button class="btn btn-danger btn-sm ml-2" (click)="eliminarProducto(producto.id_producto!)">Eliminar</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+/* Opcional: Ajustar los márgenes de los elementos de la lista */
+.list-group-item {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Opcional: Espaciado de botones dentro de la lista */
+.list-group-item .btn {
+  margin-right: 0.5rem;
+}
